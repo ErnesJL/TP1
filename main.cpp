@@ -1,22 +1,40 @@
 #include <iostream>
+
 using namespace std;
 
 void mostrarvec(int vec[], int dim)
 {
-	for (int i = 0; i < dim; ++i)
+	for (int i = 0; i < dim; ++i){
 		cout << vec[i] << '\t';
-    cout << endl;
+	}
+	cout << endl;
+	
+	for (int i = dim; i > 0; i--){
+		cout << vec[i] << '\t';
+	}
+	cout << endl;
 }
 
 void mostrarmat(int m[][5], int dfil)
 {
-        const int dcol = 5; // solo por prolijidad
+       	const int dcol = 5; // solo por prolijidad
 
         for (int i = 0; i < dfil; ++i) {
-                for (int j = 0; j < dcol; ++j)
+                for (int j = 0; j < dcol; ++j){
                         cout << m[i][j] << '\t';
-                cout << endl;
+                }
+            	cout << endl;
         }
+        
+        cout << endl;
+        
+        cout << "Traspuesta" << endl;
+        for (int i = 0; i < dfil; i++) {
+        	for (int j = 0; j < dcol; j++){
+        		cout << m[j][i] << '\t';
+		}
+		cout << endl;
+	}
 
 }
 
@@ -33,53 +51,16 @@ int main()
                             22, 41, 32, 11, 9,
                             39, 47, 14, 4, 23,
                             16, 38, 8, 27, 44};
-
-	// Ejercicio 1:
-
-	cout<<"Vector de 5 elementos:"<<endl;
-	for(int i=0; i<5; i++){
-		cout<<vec5[i]<<" ";
-	}
-	cout<<"\n";
-
-	cout<<"Reverso:"<<endl;
-	for(int i=4; i>=0; i--){
-		cout<<vec5[i]<<" ";
-	}
-	cout<<"\n";
-	cout<<"\n";
-
-	cout<<"Vector de 10 elementos:"<<endl;
-	for(int i=0; i<10; i++){
-		cout<<vec10[i]<<" ";
-	}
-	cout<<"\n";
-
-	cout<<"Reverso:"<<endl;
-	for(int i=9; i>=0; i--){
-		cout<<vec10[i]<<" ";
-	}
-	cout<<"\n";
-	cout<<"\n";
-
-	// Ejercicio 2:
-	
-	cout<<"Matriz original:"<<endl;
-	for(int i=0; i<5; i++){
-		for(int j=0; j<5; j++){
-			cout<<matriz[i][j]<<" ";
-		}
-		cout<<"\n";
-	}
-	cout<<"\n";
-
-	cout<<"Matriz transpuesta:"<<endl;
-	for(int i=0; i<5; i++){
-		for(int j=0; j<5; j++){
-			cout<<matriz[j][i]<<" ";
-		}
-		cout<<"\n";
-	}
-	
+    
+    cout << "Vector de 5 elementos y su reverso" << endl;
+    mostrarvec(vec5, dim5);
+    cout << "Vector de 10 elementos y su reverso" << endl;
+    mostrarvec(vec10, dim10);
+    
+    cout << endl;
+  	
+  	cout << "Matriz" << endl;
+  	mostrarmat(matriz, dim5);
+    
     return 0;
 }
